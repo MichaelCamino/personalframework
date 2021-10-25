@@ -388,18 +388,28 @@ section {
 
 /* SITE-HEADER SITE-NAV */
 .site-header .site-nav .menu-button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
   color: white;
   margin: 0;
   font-size: 1.5em;
   line-height: 1;
-  position: relative;
   z-index: 20;
   cursor: pointer;
+}
+.site-header .site-nav .menu-button svg {
+  fill: white;
+}
+.site-header .site-nav .menu-button svg rect {
+  -webkit-transition: 250ms ease-out;
+  transition: 250ms ease-out;
 }
 .site-header .site-nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  background-color: goldenrod;
   position: fixed;
   top: 0;
   right: 0;
@@ -420,18 +430,46 @@ section {
           align-items: center;
   -webkit-transform: translate(100%, 0);
           transform: translate(100%, 0);
-  -webkit-transition: all 250ms ease-out;
-  transition: all 250ms ease-out;
+  -webkit-transition: 250ms all ease-out;
+  transition: 250ms all ease-out;
   font-family: "playfair-display", georgia, times;
   font-weight: 900;
 }
 .site-header .site-nav li {
   font-size: 4vw;
+  -webkit-transform: translate(10%, 0);
+          transform: translate(10%, 0);
+  -webkit-transition: 250ms all ease-out 250ms;
+  transition: 250ms all ease-out 250ms;
+  min-width: 20vw;
+  opacity: 0;
+}
+.site-header .site-nav[data-navstate=open] .menu-button {
+  position: fixed;
+}
+.site-header .site-nav[data-navstate=open] .menubar-top {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: translate(7px, 7px) rotate(-45deg);
+          transform: translate(7px, 7px) rotate(-45deg);
+}
+.site-header .site-nav[data-navstate=open] .menubar-middle {
+  opacity: 0;
+}
+.site-header .site-nav[data-navstate=open] .menubar-bottom {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: translate(0, -4px) rotate(45deg);
+          transform: translate(0, -4px) rotate(45deg);
 }
 .site-header .site-nav[data-navstate=open] ul {
-  background-color: goldenrod;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
+}
+.site-header .site-nav[data-navstate=open] li {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1;
 }
 
 /* SITE-FOOTER SITE-NAV */
