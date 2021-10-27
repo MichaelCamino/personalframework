@@ -12,6 +12,9 @@
         line-height: 1;
         z-index: 20;
         cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 0;
 
         svg {
             fill: white;
@@ -45,9 +48,23 @@
     li {
         font-size: 4vw;
         transform: translate(10%, 0);
-        transition: 250ms all ease-out 250ms;
-        min-width: 20vw;
+        transition: 250ms all ease-in-out 250ms;
+        // min-width: 20vw;
         opacity: 0;
+    }
+
+    li.about {
+        transition-delay: .4s;
+    }
+
+    li.menu {
+        transition-delay: .6s;
+    }
+
+    .menubar-top,
+    .menubar-middle,
+    .menubar-bottom {
+        transform-origin: center;
     }
 
     &[data-navstate="open"] {
@@ -57,7 +74,7 @@
         }
 
         .menubar-top {
-            transform-origin: center;
+            
             // transform: translate(0, 8px);
             transform: translate(7px, 7px) rotate(-45deg);
             // fill: black;
@@ -68,7 +85,7 @@
         }
 
         .menubar-bottom {
-            transform-origin: center;
+           
             // transform: translate(0, -8px);
             transform: translate(0, -4px) rotate(45deg);
             // fill: black;
